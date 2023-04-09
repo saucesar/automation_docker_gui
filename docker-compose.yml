@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    networks:
+      - automation_docker_network
+    ports:
+      - 4200:4200
+    volumes:
+      - ".:/usr/src/app"
+
+networks:
+  automation_docker_network:
