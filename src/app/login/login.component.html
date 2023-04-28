@@ -1,0 +1,31 @@
+<div class="container d-flex justify-content-center">
+    <mat-card class="w-50 mt-4">
+        <mat-card-header class="d-flex justify-content-center mb-4">
+            <mat-card-title>Automation Docker</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="d-flex justify-content-center">
+            <form [formGroup]="loginForm">
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <label for="email">E-mail</label>
+                        <input class="form-control" [ngClass]="{'is-invalid': errors['email'] }" onchange=""
+                               type="email" placeholder="automation@docker.com" formControlName="email">
+                        <small class="text-danger" *ngIf="email.errors?.['required'] && errors['email']">Email é obrigatório</small>
+                        <small class="text-danger" *ngIf="email.errors?.['email'] && errors['email']">Informe um email válido</small>
+                    </div>
+                    <div class="col-12">
+                        <label for="password">Senha</label>
+                        <input class="form-control" [ngClass]="{'is-invalid': errors['password']}"
+                               [type]="hidePassword ? 'password' : 'text'" placeholder="********" formControlName="password">
+                        <small class="text-danger" *ngIf="password.errors?.['required'] && errors['password']">Senha é obrigatória</small>
+                        <small class="text-danger" *ngIf="password.errors?.['minlength'] && errors['password']">Minimo 8 caracteres</small>
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions class="d-flex justify-content-center">
+            <button mat-raised-button color="primary" (click)="submit()">Login</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
