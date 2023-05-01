@@ -3,6 +3,9 @@
 html, body {height: 100%; }
 
 body {
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: blueviolet;
+    background-image: linear-gradient(to right, rgb(138, 98, 176), rgb(56, 0, 109));
+    padding-bottom: 8rem;
 }
