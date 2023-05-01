@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +24,11 @@ export class LoginComponent implements OnInit {
     'password': false,
   };
 
-  constructor()
+  constructor(
+    private toastr: ToastrService,
+    private router: Router,
+    private authService: AuthService
+  )
   {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -30,7 +37,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.email.setValue('docker@automation.com')
+    this.password.setValue('12345678')
   }
 
   public toggleHidePassword() {
@@ -38,8 +46,13 @@ export class LoginComponent implements OnInit {
   }
 
   public submit() {
-    const json_data = this.getFormAsJson()
-    // console.log(json_data);
+    let logged = this.authService.login(this.email.value, this.password.value)
+    if (logged) {
+      this.toastr.success('Login bem sucedido', 'Sucesso')
+      this.router.navigate(['/dashboard'])
+    } else {
+      this.toastr.error('Varifique suas credenciais', 'Erro')
+    }
   }
 
   get email() {
@@ -48,15 +61,5 @@ export class LoginComponent implements OnInit {
 
   get password() {
     return this.loginForm.controls['password']
-  }
-
-  getFormAsJson() {
-    this.errors['email'] = !this.email.valid
-    this.errors['password'] = !this.password.valid
-    
-    return {
-      email: this.email.value,
-      password: this.password.value,
-    }
   }
 }

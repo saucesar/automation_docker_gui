@@ -1,0 +1,22 @@
+<nav class="nav justify-content-end">
+    <a class=" nav-link" href="#">
+        AD
+        <i class="fa-brands fa-docker"></i>
+    </a>
+    <a class="nav-link" routerLink="/home" routerLinkActive="active">
+        Home
+        <i class="fa-solid fa-house"></i>
+    </a>
+    <a class="nav-link" *ngIf="isLoggedIn" routerLink="/dashboard" routerLinkActive="active">
+        Dashboard
+        <i class="fa-solid fa-chart-line"></i>
+    </a>
+    <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">
+        Login
+        <i class="fa-solid fa-right-to-bracket fa-beat"></i>
+    </a>
+    <a class="nav-link" *ngIf="isLoggedIn" (click)="logout()">
+        Logout
+        <i class="fa-solid fa-door-open"></i>
+    </a>
+</nav>
