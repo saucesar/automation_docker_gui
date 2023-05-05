@@ -20,6 +20,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NavbarLateralComponent } from './components/navbar-lateral/navbar-lateral.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     NavbarComponent,
     FooterComponent,
     DashboardComponent,
+    NavbarLateralComponent,
   ],
   imports: [
     BrowserModule,
