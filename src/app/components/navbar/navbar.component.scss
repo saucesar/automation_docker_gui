@@ -12,3 +12,14 @@ nav a.active {
     text-shadow: 3px 3px 2px black;
     color: aqua;
 }
+
+.dropdown-menu
+.dropdown-item {
+    color: black !important;
+}
+
+.dropdown-menu
+.dropdown-item:hover {
+    background-color: aqua;
+    text-shadow: none;
+}
