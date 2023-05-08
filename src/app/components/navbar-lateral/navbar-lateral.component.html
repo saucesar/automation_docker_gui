@@ -1,13 +1,25 @@
 <div class="card card-body ml-1 mt-4 shadow-lg">
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active btn btn-outline-secondary mb-1" href="#">Dashboard</a>
+            <a class="nav-link btn btn-outline-secondary mb-1 text-left" routerLink="/dashboard" routerLinkActive="active"
+                (mouseover)="mouseOver('dashboard-icon')" (mouseleave)="mouseLeave('dashboard-icon')">
+                <i class="fa-solid fa-chart-line" id="dashboard-icon"></i>
+                Dashboard
+            </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link btn btn-outline-secondary mb-1" href="#">Imagens</a>
+            <a class="nav-link btn btn-outline-secondary mb-1 text-left" routerLink="/images"routerLinkActive="active"
+                (mouseover)="mouseOver('images-icon')" (mouseleave)="mouseLeave('images-icon')">
+                <i class="fa-solid fa-compact-disc" id="images-icon"></i>
+                Imagens
+            </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link btn btn-outline-secondary mb-1" href="#">Contêineres</a>
+            <a class="nav-link btn btn-outline-secondary mb-1 text-left" routerLink="#" routerLinkActive="active"
+                (mouseover)="mouseOver('conteiners-icon')" (mouseleave)="mouseLeave('conteiners-icon')">
+                <i class="fa-solid fa-layer-group" id="conteiners-icon"></i>
+                Contêineres
+            </a>
         </li>
     </ul>
 </div>
