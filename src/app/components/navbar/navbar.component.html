@@ -1,9 +1,9 @@
 <nav class="nav justify-content-end">
-    <a class="nav-link" href="#">
+    <a class="nav-link">
         AD
         <i class="fa-brands fa-docker"></i>
     </a>
-    <a class="nav-link" routerLink="/home" routerLinkActive="active">
+    <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/home" routerLinkActive="active">
         Home
         <i class="fa-solid fa-house"></i>
     </a>
@@ -23,9 +23,15 @@
             <i id="settings-icon" class="fa-solid fa-gear"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownLoggedUser">
-          <a class="dropdown-item" href="#">Meus dados</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" (click)="logout()">Logout</a>
+            <a class="dropdown-item" routerLink="#">
+                <i class="fa-solid fa-user-large"></i>
+                Meus dados
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
         </div>
       </div>
 </nav>
