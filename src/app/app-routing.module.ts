@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HomePageComponent } from './components/home-page/home-page.component'
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DockerImagesComponent } from './components/docker-images/docker-images.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'images', component: DockerImagesComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

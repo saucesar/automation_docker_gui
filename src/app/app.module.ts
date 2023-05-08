@@ -21,6 +21,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarLateralComponent } from './components/navbar-lateral/navbar-lateral.component';
+import { DockerImagesComponent } from './components/docker-images/docker-images.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NavbarLateralComponent } from './components/navbar-lateral/navbar-later
     FooterComponent,
     DashboardComponent,
     NavbarLateralComponent,
+    DockerImagesComponent,
   ],
   imports: [
     BrowserModule,
