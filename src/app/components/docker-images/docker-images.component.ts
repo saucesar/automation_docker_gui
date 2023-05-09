@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { DockerImagesService } from 'src/app/services/docker-images.service';
 import { DockerImage } from 'src/app/interfaces/docker-image'
 
@@ -9,10 +9,11 @@ import { DockerImage } from 'src/app/interfaces/docker-image'
 })
 export class DockerImagesComponent implements OnInit {
   images: DockerImage[] = []
-  public loading: boolean = true
+  loading: boolean = true
 
   constructor(
     private dockerImageService: DockerImagesService,
+    private renderer: Renderer2,
   )
   {}
 
@@ -21,12 +22,26 @@ export class DockerImagesComponent implements OnInit {
   }
 
   getImages() {
+    this.enableLoading()
     this.dockerImageService.getAll().subscribe(
       (images) => {
         this.images = images
-        this.loading = false
+        this.disableLoading()
       }
     )
   }
 
+  get buttonReload() {
+    return this.renderer.selectRootElement("#button-reload")
+  }
+
+  enableLoading() {
+    this.loading = true
+    this.buttonReload.classList.add('fa-spin')
+  }
+
+  disableLoading() {
+    this.loading = false
+    this.buttonReload.classList.remove('fa-spin')
+  }
 }

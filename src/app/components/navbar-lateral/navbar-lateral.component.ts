@@ -11,13 +11,11 @@ export class NavbarLateralComponent {
 
   public mouseOver(elementId: string) {
     const element = this.renderer.selectRootElement(`#${elementId}`)
-    console.log(element.classList)
     element.classList.add('fa-beat')
   }
 
   public mouseLeave(elementId: string) {
     const element = this.renderer.selectRootElement(`#${elementId}`)
-    console.log(element.classList)
     element.classList.remove('fa-beat')
   }
 }
